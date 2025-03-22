@@ -100,13 +100,41 @@
                   </div>
                 </div>
               </div>
-              nn
             </div>
           </div>
           <div
             class="text-end item bg-img"
             data-overlay-dark="4"
             data-background="img/Jumimages/2.jpeg"
+          >
+            <div class="v-middle caption">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-7 offset-md-3">
+                    <div class="o-hidden">
+                      <h1>
+                        ZIMIC <span class="d-none d-md-block">PROPERTIES</span>
+                      </h1>
+                      <p>
+                        Revolutionize the real estate industry in Africa and
+                        beyond by delivering <br />
+                        exceptional, customer-centric experiences
+                      </p>
+                      <div class="butn-light mt-30 mb-30">
+                        <a href="buy-now.html" target="_blank"
+                          ><span>Buy Now</span></a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="text-end item bg-img"
+            data-overlay-dark="4"
+            data-background="img/Jumimages/3.jpg"
           >
             <div class="v-middle caption">
               <div class="container">
@@ -289,8 +317,9 @@
                   <h5>Property Sales.</h5>
                   <div class="line"></div>
                   <p>
-                    Architecture bibendum eros eget lacus the vulputate sit amet
-                    vehicuta nibhen ulicera in the vitae miss.
+                    Our company excels in property sales, offering expert
+                    guidance, seamless transactions, competitive pricing, and
+                    exceptional customer service.
                   </p>
                   <div class="numb">01</div>
                 </div>
@@ -301,8 +330,8 @@
                   <h5>Property Rentals.</h5>
                   <div class="line"></div>
                   <p>
-                    Architecture bibendum eros eget lacus the vulputate sit amet
-                    vehicuta nibhen ulicera in the vitae miss.
+                    We offer top-quality rentals with great locations, fair
+                    prices, and seamless leasing.
                   </p>
                   <div class="numb">02</div>
                 </div>
@@ -313,8 +342,8 @@
                   <h5>Property Managment.</h5>
                   <div class="line"></div>
                   <p>
-                    Architecture bibendum eros eget lacus the vulputate sit amet
-                    vehicuta nibhen ulicera in the vitae miss.
+                    We ensure hassle-free property management with expert
+                    maintenance, tenant care, and maximized value.
                   </p>
                   <div class="numb">03</div>
                 </div>
@@ -473,8 +502,9 @@
                 data-animate-effect="fadeInUp"
               >
                 <p>
-                  Our firm nisl sodales sit amet sapien idea placerat sodales
-                  orcite. Vivamus ne miss rhoncus felis bauen architecture.
+                  Zimic offers prime land opportunities, where your future
+                  begins. Invest in your dream space today, and watch your
+                  vision grow.
                 </p>
               </div>
               <div
@@ -488,30 +518,14 @@
                   FCT-Abuja
                 </p>
               </div>
+
               <div class="col-md-4 animate-box" data-animate-effect="fadeInUp">
-                <form
-                  method="post"
-                  class="contact__form"
-                  action="https://duruthemes.com/demo/html/bauen/onepage-lightsidebar/mail.php"
-                >
-                  <!-- Form message -->
-                  <div class="row">
-                    <div class="col-12">
-                      <div
-                        `
-                        class="alert alert-success contact__msg"
-                        style="display: none"
-                        role="alert"
-                      >
-                        Your message was sent successfully.
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Form elements -->
+                <form class="contact__form" id="contactForm">
                   <div class="row">
                     <div class="col-md-12 form-group">
                       <input
                         name="name"
+                        id="name"
                         type="text"
                         placeholder="Your Name *"
                         required
@@ -520,6 +534,7 @@
                     <div class="col-md-6 form-group">
                       <input
                         name="email"
+                        id="email"
                         type="email"
                         placeholder="Your Email *"
                         required
@@ -528,6 +543,7 @@
                     <div class="col-md-6 form-group">
                       <input
                         name="phone"
+                        id="phone"
                         type="text"
                         placeholder="Your Number *"
                         required
@@ -536,6 +552,7 @@
                     <div class="col-md-12 form-group">
                       <input
                         name="subject"
+                        id="subject"
                         type="text"
                         placeholder="Subject *"
                         required
@@ -775,16 +792,21 @@
             message: document.getElementById("message").value,
           };
 
-          const response = await fetch("http://localhost:5000/send-email", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-          });
+          try {
+            const response = await fetch("http://localhost:5000/send-email", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(formData),
+            });
 
-          const result = await response.json();
-          alert(result.message);
+            const result = await response.json();
+            alert(result.message);
+            document.getElementById("contactForm").reset();
+          } catch (error) {
+            alert("Error sending message. Please try again.");
+          }
         });
     </script>
     <script src="js/jquery-3.6.3.min.js"></script>
