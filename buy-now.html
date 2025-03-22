@@ -120,28 +120,12 @@
                   class="col-md-4 animate-box"
                   data-animate-effect="fadeInUp"
                 >
-                  <form
-                    method="post"
-                    class="contact__form"
-                    action="https://duruthemes.com/demo/html/bauen/onepage-lightsidebar/mail.php"
-                  >
-                    <!-- Form message -->
-                    <div class="row">
-                      <!-- <div class="col-12">
-                        <div
-                          class="alert alert-success contact__msg"
-                          style="display: none"
-                          role="alert"
-                        >
-                          Your message was sent successfully.
-                        </div>
-                      </div> -->
-                    </div>
-                    <!-- Form elements -->
+                  <form class="contact__form" id="contactForm">
                     <div class="row">
                       <div class="col-md-12 form-group">
                         <input
                           name="name"
+                          id="name"
                           type="text"
                           placeholder="Your Name *"
                           required
@@ -150,6 +134,7 @@
                       <div class="col-md-6 form-group">
                         <input
                           name="email"
+                          id="email"
                           type="email"
                           placeholder="Your Email *"
                           required
@@ -158,6 +143,7 @@
                       <div class="col-md-6 form-group">
                         <input
                           name="phone"
+                          id="phone"
                           type="text"
                           placeholder="Your Number *"
                           required
@@ -166,6 +152,7 @@
                       <div class="col-md-12 form-group">
                         <input
                           name="subject"
+                          id="subject"
                           type="text"
                           placeholder="Subject *"
                           required
